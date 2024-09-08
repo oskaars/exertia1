@@ -1,14 +1,17 @@
-const express = require('express');
-const cors = require("cors");
+require('dotenv').config()
 
-require('dotenv').config();
+const express = require('express');
 
 const app = express();
-const port = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
+//routing 
+app.get('/', (req, res) => {
+    res.json({mssg: 'welcome to the app'})
+})
 
-app.listen(port, () => {
-    console.log('server is running on port:', port);
+
+// require dotenv config oraz proceess.env.port sluzy do robienia zmiennych globalnych w pliku .env którego potem wrzucamy do gitignore
+app.listen(process.env.PORT, () => {
+    console.log('server is running on port:4000');
 });
+
